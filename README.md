@@ -1,7 +1,9 @@
- # OTITE
+
+# OTITE
+
 Depository for the IT/OT Project
 
-##Class
+## Class
 
 ```mermaid
 classDiagram
