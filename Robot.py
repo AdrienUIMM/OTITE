@@ -1,13 +1,19 @@
 class Robot :  
     
-    marque = ("ABB", "FANUC", "Staubli")  
+    marque = "Fanuc" 
     state_ok = False 
     nb_alarme = 0
     pos_tool = [0,0,0]
 
     def GetStatus(self): 
         
-        return self.state_ok 
+        if self.state_ok == True:
+            status = "OK"
+        else:
+            status = "NOK"
+
+        print( self.marque +" Status " +status +" (" + str(self.nb_alarme) + ") " + "Position X=" + str(self.pos_tool[0]) +" Y=" + str(self.pos_tool[1]) +" Z=" + str(self.pos_tool[2]))
+    
 
     def MoveHome(self):  
         
@@ -24,6 +30,7 @@ class Robot :
     def RaiseDefault(self):  
         
         self.state_ok = False
+        self.nb_alarme = self.nb_alarme + 1 ;
 
     def ClearDefault(self):  
         
