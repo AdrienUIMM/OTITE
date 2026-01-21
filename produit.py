@@ -23,11 +23,19 @@ class Produit :
     def ComputeMass(self) : 
         densite = self.material_density_kg_m3[self.__material]
         return densite*self.__volume_m3
+    
+    @property
+     def length(self):
+        return self.__length_m
+    
+    @length.setter
+        def length(self, l):
+        self.__length_m = l / 1000.0
+        self.__volume_m3 = self.ComputeVolume()
+        self.__mass_kg = self.ComputeMass()
         
-  #Début du main
-  #___________________________________________________________________________
-    
-    
+#Début du main
+#___________________________________________________________________________
        
 if __name__ == "__main__":
     
