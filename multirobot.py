@@ -1,4 +1,4 @@
-class Robot :  
+class MultiRobot :  
     
     marque = "Fanuc" 
     state_ok = False 
@@ -35,28 +35,45 @@ class Robot :
     def ClearDefault(self):  
         
         self.state_ok = True
-
-
-
     
+    def __init__(self, id=1):
+        
+            self.id = id
+            self.state_ok
+            self.nb_alarme = 0
+            self.pos_tool = [0,0,0]
+    
+    def __str__(self) : 
+        if self.state_ok == True:
+            status = "OK"
+        else:
+            status = "NOK"
 
+        texte =  self.marque +" Status " +status +" (" + str(self.nb_alarme) + ") " + "Position X=" + str(self.pos_tool[0]) +" Y=" + str(self.pos_tool[1]) +" Z=" + str(self.pos_tool[2])
+        return texte
+        
+    
+        
+            
 
 if __name__ == "__main__":
 
-    print(Robot.marque) # utilisation attribut de class sans instanciation
 
-    rob1 = Robot() # premiere instance de robot
-    rob2 = Robot() # seconde instance de robot
+    rob1 = MultiRobot() 
+    rob2 = MultiRobot(2)
+    
+    
+    print(rob1)
+    
 
-    # Ordres sur robot 1
-    rob1.GetStatus()
     rob1.MoveHome()
     rob1.RaiseDefault()
-    rob1.GetStatus()
+    print(rob1)
     rob1.ClearDefault()
-    rob1.GetStatus()
-
-    # Ordres sur robot 2
-    rob2.GetStatus()
+    rob1.MovePick()
+    print(rob1)
+    print(rob2) 
     rob2.RaiseDefault()
-    rob2.GetStatus()
+    print(rob2)
+
+    
