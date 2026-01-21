@@ -1,11 +1,11 @@
 import Cellule
-from Robot import Robot
+from Robot import Robot as ro
 import multirobot as mr
 
 if __name__ == "__main__":
     
     cell = Cellule.Cellule()
-    rob1 = Robot()
+    rob1 = ro()
     rob2 = mr.MultiRobot(3)
 
 print("Mode Courant = ",cell.GetMode())
