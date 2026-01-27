@@ -25,11 +25,11 @@ class Produit :
         return densite*self.__volume_m3
     
     @property
-     def length(self):
+    def length(self):
         return self.__length_m
     
     @length.setter
-        def length(self, l):
+    def length(self, l):
         self.__length_m = l / 1000.0
         self.__volume_m3 = self.ComputeVolume()
         self.__mass_kg = self.ComputeMass()
@@ -39,10 +39,11 @@ class Produit :
        
 if __name__ == "__main__":
     
-    prod1 = Produit("Bois",500,500,500)
-    print(prod1)
-    prod1.__length_m = 1000
-    print(prod1)
+    p1 = Produit("Bois",500,500,500)
+    print(p1)
+    p1.length = 1000
+    print(p1)
+    
     
     
     
